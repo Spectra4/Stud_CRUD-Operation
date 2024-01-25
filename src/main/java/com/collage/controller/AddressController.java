@@ -39,7 +39,7 @@ public class AddressController {
 	@PutMapping("/update-pincode")
 	public String updatePinCode(@RequestParam String oldpin, @RequestParam String newpin) {
 		int updatecount = AddressRepo.updatePincode(oldpin, newpin);
-		return updatecount + "Pin Code update Succsessfully ";
+		return updatecount + " Pin Code update Succsessfully ";
 	}
 	
 	

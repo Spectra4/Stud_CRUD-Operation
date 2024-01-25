@@ -13,6 +13,6 @@ public interface StudentRepo extends JpaRepository<Student, Integer> {
 
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE Student s SET s.name = :newName WHERE s.name = :oldName" ,nativeQuery = true)
+	@Query(value = "UPDATE Student a set a.name = :newName WHERE a.name = :oldName" ,nativeQuery = true)
     int updateName(@Param("oldName") String oldName, @Param("newName") String newName);
 }

@@ -1,5 +1,10 @@
 package com.collage.entity;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
@@ -13,11 +18,30 @@ public class Student {
 	@Id
 	private int rollNO;
 	
-	@Column(name = "Stud Name")
 	private String name;
 	private String contact;
 	private String gender;
+	@CreationTimestamp
+	private LocalDateTime createon;
+	@UpdateTimestamp
+	private LocalDateTime updateon;
 	
+	public LocalDateTime getCreateon() {
+		return createon;
+	}
+
+	public void setCreateon(LocalDateTime createon) {
+		this.createon = createon;
+	}
+
+	public LocalDateTime getUpdateon() {
+		return updateon;
+	}
+
+	public void setUpdateon(LocalDateTime updateon) {
+		this.updateon = updateon;
+	}
+
 	@OneToOne(mappedBy = "std")
 	@JsonManagedReference
 	private Address address;
